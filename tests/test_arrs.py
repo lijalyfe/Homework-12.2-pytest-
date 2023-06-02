@@ -10,6 +10,12 @@ def test_get():
     assert arrs.get(array, -1, default='x') == 'x'
 
 
-def test_slice():
-    assert arrs.my_slice([1, 2, 3, 4], 1, 3) == [2, 3]
-    assert arrs.my_slice([1, 2, 3], 1) == [2, 3]
+def test_my_slice():
+    array = [1, 2, 'a', 'b', 3, 4]
+    assert arrs.my_slice(array) == array
+    assert arrs.my_slice(array, 2) == ['a', 'b', 3, 4]
+    assert arrs.my_slice(array, -2) == [3, 4]
+    assert arrs.my_slice(array, 0, 3) == [1, 2, 'a']
+    assert arrs.my_slice(array, 2, -1) == ['a', 'b', 3]
+    assert arrs.my_slice(array, end=4) == [1, 2, 'a', 'b']
+
