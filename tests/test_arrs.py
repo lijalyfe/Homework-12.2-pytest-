@@ -2,8 +2,12 @@ from utils import arrs
 
 
 def test_get():
-    assert arrs.get([1, 2, 3], 1, "test") == 3
-    assert arrs.get([], 0, "test") == "test"
+    array = [1, 2, 'a', 'b']
+    assert arrs.get(array, 0) == 1
+    assert arrs.get(array, 2) == 'a'
+    assert arrs.get(array, 4, default=0) == 0
+    assert arrs.get(array, -1) is None
+    assert arrs.get(array, -1, default='x') == 'x'
 
 
 def test_slice():
